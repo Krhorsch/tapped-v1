@@ -1,0 +1,7 @@
+<h2>Check Out All Of The Beers Our Users Have Tried</h2>
+
+<ul>
+<%@beers.each do |beer| %>
+<li><%= beer.name %> - <%= beer.brewery %> - <%= beer.style %></li>
+<% end %>
+</ul>

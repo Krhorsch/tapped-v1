@@ -1,0 +1,11 @@
+<h2>Add a Beer To Our Comprehensive List!</h2>
+
+<%= form_for(@beer) do |f| %>
+<%= f.label :name%>
+<%= f.text_field :name%> <br>
+<%= f.label :brewery%>
+<%= f.text_field :brewery%> <br>
+<%= f.label :style%>
+<%= f.text_field :style%> <br>
+<%= f.submit "Add Beer!" %>
+<% end %>
