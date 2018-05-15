@@ -1,1 +1,4 @@
 <h3><%=@user.name%></h3>
+<% if @user == @current_user %>
+  <%= link_to "Tap a New Beer", '/users/:id/beers/new'%>
+<% end %>

@@ -9,6 +9,7 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    @beers = Beer.all
   end
 
   def create

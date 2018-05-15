@@ -4,4 +4,8 @@ class Beer < ApplicationRecord
   validates :name, presence: true
   validates :brewery, presence: true
   validates :style, presence: true
+
+  def display
+    "#{self.name} - #{self.brewery} - #{self.style}"
+  end
 end

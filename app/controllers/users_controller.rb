@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find_by(id: params[:id])
+    @current_user = current_user
   end
 
   def signin
-
+    @user = User.find_by(name: params[:name], password_digest: params[:password_digest])
+    session[:user_id] = @user.id
+    redirect_to @user
   end
 
   def new

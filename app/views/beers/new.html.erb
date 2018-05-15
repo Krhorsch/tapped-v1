@@ -1,4 +1,14 @@
-<h2>Add a Beer To Our Comprehensive List!</h2>
+<form action="/beers" method="POST" >
+<% @beers.each do |beer| %>
+<p><input type="checkbox" name="beer_ids"><%= beer.display %></input> Rating: <input type="text" name="rating"></p><br>
+<% end %>
+<input type="submit" value="Update Your Tapped Beers"
+</form>
+
+
+
+<h4>Don't See the beer you're Looking For?</h4>
+<h5>Add a New Beer to Our Comprehensive List</h5>
 
 <%= form_for(@beer) do |f| %>
 <%= f.label :name%>
