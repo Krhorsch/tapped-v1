@@ -14,6 +14,16 @@ class SessionsController < ApplicationController
     redirect_to @user
   end
 
+  def signin
+    @user = User.find_by(name: params[:name], password_digest: params[:password_digest])
+    session[:user_id] = @user.id
+    redirect_to @user
+  end
+
+  def logout
+    session.clear
+    redirect_to '/'
+  end
   private
 
   def auth

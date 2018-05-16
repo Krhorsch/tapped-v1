@@ -1,4 +1,11 @@
-<h3><%=@user.name%></h3>
+<%= link_to "logout", '/users/logout'%>
+
+<h3>Beers <%=@user.name%> has tried: </h3>
+
+<% @user.user_beers.each do |userbeer| %>
+<p><%= userbeer.beerinstance.display %> Rating: <%= userbeer.rating %></p>
+<% end %>
+
 <% if @user == @current_user %>
-  <%= link_to "Tap a New Beer", '/users/:id/beers/new'%>
+  <%= link_to "Tap a New Beer", "/users/#{@user.id}/beers/new"%>
 <% end %>

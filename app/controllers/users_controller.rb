@@ -4,12 +4,6 @@ class UsersController < ApplicationController
     @current_user = current_user
   end
 
-  def signin
-    @user = User.find_by(name: params[:name], password_digest: params[:password_digest])
-    session[:user_id] = @user.id
-    redirect_to @user
-  end
-
   def new
     @user = User.new
   end
@@ -19,10 +13,6 @@ class UsersController < ApplicationController
     @user.save
     session[:user_id] = @user.id
     redirect_to @user
-  end
-
-  def logout
-    session.clear
   end
 
   private

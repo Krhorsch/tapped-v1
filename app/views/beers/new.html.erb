@@ -1,9 +1,9 @@
-<form action="/beers" method="POST" >
+<%=form_tag "/userbeers" do%>
 <% @beers.each do |beer| %>
-<p><input type="checkbox" name="beer_ids"><%= beer.display %></input> Rating: <input type="text" name="rating"></p><br>
+<p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
 <% end %>
-<input type="submit" value="Update Your Tapped Beers"
-</form>
+<%=submit_tag "Update Your Tapped Beers"%>
+<% end %>
 
 
 

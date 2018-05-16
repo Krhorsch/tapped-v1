@@ -9,10 +9,13 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
-    @beers = Beer.all
+    @beers = Beer.all.collect do |x|
+     if !current_user.beers.include?(x)
+     end
   end
 
   def create
+    binding.pry
     @beer = Beer.new(beer_params)
     @beer.save
     redirect_to @beer
