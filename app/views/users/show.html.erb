@@ -1,6 +1,6 @@
 <%= link_to "logout", '/users/logout'%>
 
-<h3>Beers <%=@user.name%> has tried: </h3>
+<h3><%=@user.name%> has tapped these beers: </h3>
 
 <% @user.user_beers.each do |userbeer| %>
 <p><%= userbeer.beerinstance.display %> Rating: <%= userbeer.rating %></p>

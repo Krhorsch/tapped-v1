@@ -16,11 +16,13 @@ class SessionsController < ApplicationController
   end
 
   def signin
-    if @user = User.find_by(name: params[:name], password_digest: params[:password_digest])
-      session[:user_id] = @user.id
-      redirect_to @user
+    if @user = User.find_by(name: params[:name])
+      if @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect_to @user
+      end
     else
-      flash[:notice] = "Invalid Username - Password combination. Please try again."
+      flash[:notice] = "Username - Password comination do not match"
       render :index
     end
   end
