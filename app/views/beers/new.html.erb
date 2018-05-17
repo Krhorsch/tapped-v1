@@ -1,6 +1,7 @@
-<%=form_tag "/userbeers" do%>
+<%= flash[:notice] %>
+<%=form_tag '/userbeers' do%>
 <% @beers.each do |beer| %>
-<p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
+  <p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
 <% end %>
 <%=submit_tag "Update Your Tapped Beers"%>
 <% end %>

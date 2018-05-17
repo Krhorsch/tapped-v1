@@ -9,12 +9,7 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
-    @beers = []
-    Beer.all.each do |x|
-      if !current_user.beers.include?(x)
-        @beers << x
-      end
-    end
+    @beers = Beer.not_current_user_beers(current_user)
   end
 
   def create

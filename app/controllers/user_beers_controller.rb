@@ -2,8 +2,16 @@ class UserBeersController < ApplicationController
   def create
     params[:beer_ids].each do |id|
       @userbeer = UserBeer.new(user_id: current_user.id, beer_id: id, rating: params[:rating][id])
-      @userbeer.save
+      if @userbeer.valid?
+        @userbeer.save
+      else
+        @beer = Beer.new
+        @beers = Beer.not_current_user_beers(current_user)
+        flash[:notice] = "Beer Rating must be between 1-5"
+        render "beers/new"
+        return
+      end
     end
-    redirect_to current_user
+    redirect_to user_path(current_user)
   end
 end

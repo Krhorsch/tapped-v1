@@ -1,7 +1,14 @@
 <h2>Check Out All Of The Beers Our Users Have Tried</h2>
 
-<ul>
-<%@beers.each do |beer| %>
-<li><%= beer.display %></li>
+<table>
+    <tr>
+      <th>Beer</th>
+      <th>Overall User Rating</th>
+    </tr>
+<%@beers.organize.each do |beer| %>
+    <tr>
+      <td><%= beer.display %></td>
+      <td><%= beer.overallrating %></td>
+    </tr>
 <% end %>
-</ul>
+</table>
