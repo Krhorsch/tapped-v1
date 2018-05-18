@@ -1,3 +1,9 @@
+<% if logged_in? %>
+  <%= render partial: "menu", locals: {user: current_user} %>
+<% else%>
+  <%= link_to "Signup or Login", '/' %>
+  <% end %>
+
 <h2>Check Out All Of The Beers Our Users Have Tried</h2>
 
 <table>
@@ -8,7 +14,7 @@
 <%@beers.organize.each do |beer| %>
     <tr>
       <td><%= beer.display %></td>
-      <td><%= beer.overallrating %></td>
+      <td><%= beer.overallrating.round(1) %></td>
     </tr>
 <% end %>
 </table>

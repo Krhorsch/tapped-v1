@@ -1,4 +1,4 @@
-<%= render partial: "menu", locals: {user: current_user} %>
+<%= render partial: "beers/menu", locals: {user: current_user} %>
 <%= flash[:notice] %>
 <%=form_tag '/userbeers' do%>
 <% @beers.each do |beer| %>

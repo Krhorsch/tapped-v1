@@ -1,4 +1,6 @@
 <p><%= flash[:notice] %></p>
+<h1>Welcome to Tapped!</h1>
+<h3>Please Signin or Signup</h3>
 <%= form_tag '/signin' do |f| %>
 <p>Username: <%= text_field_tag :name%></p>
 <p>Password: <%= password_field_tag :password%></p>

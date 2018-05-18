@@ -1,4 +1,9 @@
- <table>
+<% if logged_in? %>
+  <%= render partial: "beers/menu", locals: {user: current_user} %>
+<% else%>
+  <%= link_to "Signup or Login", '/' %>
+  <% end %>
+<table>
     <tr>
       <th>User</th>
       <th># of Beers Tapped</th>
