@@ -1,0 +1,12 @@
+ <table>
+    <tr>
+      <th>User</th>
+      <th># of Beers Tapped</th>
+    </tr>
+<% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.beers.count %></td>
+    </tr>
+<% end %>
+</table>

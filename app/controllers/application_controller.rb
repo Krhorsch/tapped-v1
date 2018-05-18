@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!session[:user_id]
   end
+
+  private
+
+  def require_login
+    unless logged_in?
+      flash[:notice] = "You must be logged in to access your previous request"
+      redirect_to '/'
+    end
+  end
 end

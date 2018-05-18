@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_action :require_login, only: [:show, :new, :create]
   def index
     @beers = Beer.all
   end
@@ -16,7 +17,7 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_params)
     if @beer.valid?
       @beer.save
-      redirect_to @beer
+      redirect_to beers_path
     else
       render :new
     end

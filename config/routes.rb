@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get '/auth/github/callback', to: 'sessions#create'
   post '/signin', to: "sessions#signin"
   post '/userbeers', to: "user_beers#create"
-  get '/users/logout', to: "sessions#logout"
-  resources :users, only: [:new, :create, :show]
+  get '/logout', to: "sessions#logout"
+  resources :users, only: [:index, :new, :create, :show]
   resources :beers
 
   resources :users do

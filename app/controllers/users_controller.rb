@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
+
+  def index
+    @users = User.all
+  end
   def show
     @user = User.find_by(id: params[:id])
     @current_user = current_user
