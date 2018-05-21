@@ -1,24 +1,12 @@
-# README
+Is a Ruby on Rails application platform for users to keep track of beers they have tried.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Getting Started
+Fork the repository.
+From your terminal, clone the SSH or HTTPS key.
+Then run
+Cd tapped-v1
+Run Bundle install.
+Run rake db:migrate.
+Run rake db:seed
+Run rails s.
+Finally, Go to localhost:3000 to view the app.
