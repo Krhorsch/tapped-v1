@@ -1,6 +1,8 @@
-Is a Ruby on Rails application platform for users to keep track of beers they have tried.
+<h1>Tapped</h1>
+<p>Is a Ruby on Rails application platform for users to keep track of beers they have tried.</p>
 
-Getting Started
+<h2>Getting Started</h2>
+
 Fork the repository.
 From your terminal, clone the SSH or HTTPS key.
 Then run
