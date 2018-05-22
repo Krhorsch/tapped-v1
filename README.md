@@ -13,3 +13,7 @@
 <li>Run rails s.</li>
 <li>Finally, Go to localhost:3000 to view the app.</li>
 </ul>
+
+<h3>License</h3>
+
+<p>This project is licensed under the terms of the MIT license.</p>
