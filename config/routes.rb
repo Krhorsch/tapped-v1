@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :new, :create, :show]
   resources :beers
-  resources :userbeers, only: [:create, :edit, :update, :destroy]
+  resources :user_beers, only: [:create, :edit, :update, :destroy]
 
   resources :users do
     resources :beers, only: [:index, :new, :create]

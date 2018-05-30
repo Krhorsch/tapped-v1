@@ -5,7 +5,7 @@
 <% @user.user_beers.each do |userbeer| %>
 <p><%= userbeer.beerinstance.display %> Rating: <%= userbeer.rating %> </p>
 <% if @user == current_user %>
-  <p><%= link_to "Adjust Beer Rating", "/userbeers/#{userbeer.id}/edit"%></p>
+  <p><%= link_to "Adjust Beer Rating", edit_user_beer_path(userbeer)%></p>
 <% end %>
 <% end %>
 
