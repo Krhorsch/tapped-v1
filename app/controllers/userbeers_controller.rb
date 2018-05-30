@@ -1,5 +1,6 @@
 class UserBeersController < ApplicationController
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:create, :edit, :update, :destroy]
+
   def create
     params[:beer_ids].each do |id|
       @userbeer = UserBeer.new(user_id: current_user.id, beer_id: id, rating: params[:rating][id])
@@ -14,5 +15,17 @@ class UserBeersController < ApplicationController
       end
     end
     redirect_to user_path(current_user)
+  end
+
+  def edit
+    @userbeer = UserBeer.find_by(id: params[:id])
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 end

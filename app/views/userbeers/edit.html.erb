@@ -1,0 +1,5 @@
+<%= form_for(@userbeer) do |f| %>
+<p><%= @userbeer.beer.name %></p>
+<%= f.text_field :rating %>
+<%= f.submit "Submit" %>
+<% end %>
