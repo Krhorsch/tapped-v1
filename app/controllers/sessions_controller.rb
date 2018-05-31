@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def index
+    render layout: false
     @user = User.new
   end
 

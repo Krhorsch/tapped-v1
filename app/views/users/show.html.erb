@@ -8,5 +8,5 @@
 <% end %>
 
 <% if @user == current_user %>
-  <%= link_to "Tap a New Beer", "/users/#{@user.id}/beers/new"%>
+  <h4><%= link_to "Tap a New Beer", "/users/#{@user.id}/beers/new"%></h4>
 <% end %>
