@@ -1,6 +1,5 @@
-<%= render partial: "beers/menu", locals: {user: current_user} %>
 <%= flash[:notice] %>
-<%=form_tag '/userbeers' do%>
+<%=form_tag '/user_beers' do%>
 <% @beers.each do |beer| %>
   <p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
 <% end %>

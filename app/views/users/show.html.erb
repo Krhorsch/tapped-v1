@@ -1,11 +1,9 @@
-<%= render partial: "beers/menu", locals: {user: current_user} %>
-
 <h3><%=@user.name%> has tapped these beers: </h3>
 
 <% @user.user_beers.each do |userbeer| %>
-<p><%= userbeer.beerinstance.display %> Rating: <%= userbeer.rating %> </p>
+<p><%= userbeer.beer.display %> Rating: <%= userbeer.rating %> </p>
 <% if @user == current_user %>
-  <p><%= link_to "Adjust Beer Rating", edit_user_beer_path(userbeer)%></p>
+  <p><%= link_to "Adjust Beer Rating", edit_user_beer_path(userbeer)%>  |  <%= link_to "Remove from Tapped List", userbeer, method: :delete%></p>
 <% end %>
 <% end %>
 

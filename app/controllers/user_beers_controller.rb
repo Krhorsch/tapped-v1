@@ -22,10 +22,22 @@ class UserBeersController < ApplicationController
   end
 
   def update
-
+    @userbeer = UserBeer.find_by(id: params[:id])
+    if @userbeer.update(userbeer_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    UserBeer.find_by(id: params[:id]).destroy
+    redirect_to user_path(current_user)
+  end
 
+  private
+
+  def userbeer_params
+    params.require(:user_beer).permit(:rating)
   end
 end
