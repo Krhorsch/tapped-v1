@@ -12,13 +12,7 @@
 <h5>Add a New Beer to Our Comprehensive List</h5>
 
 <%= form_for(@beer) do |f| %>
-<% if @beer.errors.any? %>
-  <ul>
-    <% @beer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<%= render partial: "beers/errors", locals: {object: @beer} %>
 <%= f.label :name%>
 <%= f.text_field :name%> <br>
 <%= f.label :brewery%>

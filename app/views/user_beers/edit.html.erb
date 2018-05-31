@@ -1,11 +1,5 @@
 <%= form_for(@userbeer) do |f| %>
-<% if @userbeer.errors.any? %>
-  <ul>
-    <% @userbeer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-<% end %>
+<%= render partial: "beers/errors", locals: {object: @userbeer} %>
 <p><%= @userbeer.beer.name %></p>
 <%= f.text_field :rating %>
 <%= f.submit "Submit" %>

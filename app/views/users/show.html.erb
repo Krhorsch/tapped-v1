@@ -3,7 +3,7 @@
 <% @user.user_beers.each do |userbeer| %>
 <p><%= userbeer.beer.display %> Rating: <%= userbeer.rating %> </p>
 <% if @user == current_user %>
-  <p><%= link_to "Adjust Beer Rating", edit_user_beer_path(userbeer)%>  |  <%= link_to "Remove from Tapped List", userbeer, method: :delete%></p>
+  <p><%= link_to "Adjust Beer Rating", edit_user_beer_path(userbeer)%>  |  <%= link_to "Remove from Tapped List", userbeer, method: :delete, data: { confirm: "Please confirm you would like to delete the selected beer from your tapped list." } %></p>
 <% end %>
 <% end %>
 

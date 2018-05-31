@@ -19,6 +19,7 @@ class BeersController < ApplicationController
       @beer.save
       redirect_to beers_path
     else
+      @beers = Beer.not_current_user_beers(current_user)
       render :new
     end
   end
