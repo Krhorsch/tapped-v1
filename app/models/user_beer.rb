@@ -4,5 +4,5 @@ class UserBeer < ApplicationRecord
   validates :rating, presence: true
   validates_inclusion_of :rating, in: (1..5), :message => "must be between 1-5"
   scope :prep_rating, ->(beer) { where(beer_id: beer.id) }
-
+  
 end

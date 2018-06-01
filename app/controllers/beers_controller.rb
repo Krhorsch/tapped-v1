@@ -24,6 +24,14 @@ class BeersController < ApplicationController
     end
   end
 
+  def breweryform
+    @breweries = Beer.breweries
+  end
+
+  def breweryshow
+    @beers = Beer.by_brewery(params[:brewery])
+  end
+
   private
 
   def beer_params

@@ -5,6 +5,11 @@ class Beer < ApplicationRecord
   validates :name, uniqueness: true
   validates :brewery, presence: true
   validates :style, presence: true
+  scope :by_brewery, ->(brewery) {where(brewery: brewery)}
+
+  def self.breweries
+    self.all.collect{|x| x.brewery}.uniq
+  end
 
   def display
     "#{self.name} - #{self.brewery} - #{self.style}"

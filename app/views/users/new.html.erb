@@ -1,6 +1,6 @@
 <%= link_to "Back", '/'%>
 <%= form_for(@user) do |f|%>
-<%= render partial: "errors", locals: {object: @user} %>
+<%= render partial: "beers/errors", locals: {object: @user} %>
 <p>Username: <%= f.text_field :name%></p>
 <p>Password: <%= f.password_field :password%> </p>
 <p>Email: <%= f.text_field :email%></p>

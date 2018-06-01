@@ -1,0 +1,6 @@
+<%= form_tag '/beers/brewery' do %>
+  <% @breweries.each do |brewery|%>
+    <input type="radio" name="brewery" value="<%= brewery %>"><%= brewery %></input><br>
+  <% end %>
+<%= submit_tag "Submit"%>
+<% end %>
