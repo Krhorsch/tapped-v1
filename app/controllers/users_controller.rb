@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user}
+    end
   end
 
   def new
@@ -26,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def most
-    
+
   end
 
   private
