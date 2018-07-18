@@ -4,7 +4,7 @@
 <% @beers.each do |beer| %>
   <p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
 <% end %>
-<div>
+</div>
 <%=submit_tag "Update Your Tapped Beers"%>
 <% end %>
 
@@ -34,7 +34,9 @@ $(function () {
     var posting = $.post('/beers', values);
 
     posting.done(function(data) {
-
+      var beer = data;
+      var template = `<p><input type="checkbox" name="beer_ids[]" value="${beer.id}">${beer.name} - ${beer.brewery} - ${beer.style}</input> Rating: <input type="text" name="rating[${beer.id}]"></p><br>`;
+      $("#beers").append(template);
       });
   })
 });

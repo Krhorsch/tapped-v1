@@ -17,7 +17,7 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_params)
     if @beer.valid?
       @beer.save
-      redirect_to beers_path
+      render json: @beer, status: 201
     else
       @beers = Beer.not_current_user_beers(current_user)
       render :new
