@@ -1,8 +1,10 @@
 <%= flash[:notice] %>
 <%=form_tag '/user_beers' do%>
+<div id="beers">
 <% @beers.each do |beer| %>
   <p><input type="checkbox" name="beer_ids[]" value="<%= beer.id %>"><%= beer.display %> </input> Rating: <input type="text" name="rating[<%= beer.id %>]"></p><br>
 <% end %>
+<div>
 <%=submit_tag "Update Your Tapped Beers"%>
 <% end %>
 
@@ -21,3 +23,19 @@
 <%= f.text_field :style%> <br>
 <%= f.submit "Add Beer!" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $("#new_beer").on("submit", function(e) {
+    e.preventDefault()
+    var values = $(this).serialize();
+
+    var posting = $.post('/beers', values);
+
+    posting.done(function(data) {
+
+      });
+  })
+});
+</script>
