@@ -20,7 +20,7 @@ $(function () {
     e.preventDefault()
     $.get("/users/" + this.dataset.id + ".json", function(data) {
       function beertable() {
-        data.beers.map(beer => `<tr><td>${beer.name}</td><td>${beer.brewery}</td><td>${beer.style}</td></tr>`).join('')
+        return data.beers.map(beer => `<tr><td>${beer.name}</td><td>${beer.brewery}</td><td>${beer.style}</td></tr>`).join('')
       }
 
       var user_beer = `<tr><td>${data.beers[0].name}</td><td>${data.beers[0].brewery}</td><td>${data.beers[0].style}</td></tr>`
