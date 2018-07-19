@@ -16,14 +16,12 @@
 <script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $(".userbeers").on("click", function(e) {
+  $(".userbeers").one("click", function(e) {
     e.preventDefault()
     $.get("/users/" + this.dataset.id + ".json", function(data) {
       function beertable() {
         return data.beers.map(beer => `<tr><td>${beer.name}</td><td>${beer.brewery}</td><td>${beer.style}</td></tr>`).join('')
       }
-
-      var user_beer = `<tr><td>${data.beers[0].name}</td><td>${data.beers[0].brewery}</td><td>${data.beers[0].style}</td></tr>`
 
       $(`#${data.id}beers`).after(beertable());
     });

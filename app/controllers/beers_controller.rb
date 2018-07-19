@@ -5,7 +5,11 @@ class BeersController < ApplicationController
   end
 
   def show
-    @beer = Beer.find_by(id: params(:id))
+    @beer = Beer.find_by(id: params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @beer}
+    end
   end
 
   def new
