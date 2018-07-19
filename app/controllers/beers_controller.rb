@@ -2,6 +2,10 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:show, :new, :create]
   def index
     @beers = Beer.all
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @beers}
+    end
   end
 
   def show
