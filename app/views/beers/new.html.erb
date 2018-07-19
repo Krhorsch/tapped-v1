@@ -21,7 +21,7 @@
 <%= f.text_field :brewery%> <br>
 <%= f.label :style%>
 <%= f.text_field :style%> <br>
-<%= f.submit "Add Beer!" %>
+<%= f.submit "Add Beer!", data: { disable_with: false } %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
@@ -30,13 +30,14 @@ $(function () {
   $("#new_beer").on("submit", function(e) {
     e.preventDefault()
     var values = $(this).serialize();
-
+    var form = this
     var posting = $.post('/beers', values);
 
     posting.done(function(data) {
-      var beer = data;
-      var template = `<p><input type="checkbox" name="beer_ids[]" value="${beer.id}">${beer.name} - ${beer.brewery} - ${beer.style}</input> Rating: <input type="text" name="rating[${beer.id}]"></p><br>`;
-      $("#beers").append(template);
+      var beer = new Beer(data.id, data.name, data.brewery, data.style);
+      $("#beers").append(beer.template());
+      form.reset()
+
       });
   })
 });
