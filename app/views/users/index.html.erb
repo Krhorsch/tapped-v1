@@ -4,27 +4,10 @@
       <th># of Beers Tapped</th>
     </tr>
 <% @users.each do |user| %>
-  <div >
-    <tr id="<%= user.id %>beers">
-      <td><a href="#" class="userbeers" data-id="<%= user.id %>"><%= user.name %></a></td>
+    <tr>
+      <td><a href="#" class="userbeers" onClick="beerIndex(<%= user.id %>); return false"><%= user.name %></a></td>
       <td><%= user.beers.count %></td>
     </tr>
-  </div>
+    <tr id="<%= user.id%>add"></tr>
 <% end %>
 </table>
-
-<script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
-<script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".userbeers").one("click", function(e) {
-    e.preventDefault()
-    $.get("/users/" + this.dataset.id + ".json", function(data) {
-      function beertable() {
-        return data.beers.map(beer => `<tr><td>${beer.name}</td><td>${beer.brewery}</td><td>${beer.style}</td></tr>`).join('')
-      }
-
-      $(`#${data.id}beers`).after(beertable());
-    });
-  })
-});
-</script>

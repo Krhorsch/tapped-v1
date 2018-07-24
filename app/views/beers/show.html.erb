@@ -3,37 +3,4 @@
 <h5><%=@beer.style%></h5>
 <div id="lastbeer"></div>
 
-<button href="#" class="js-prev" data-id="<%=@beer.id%>">Previous Beer</button><button href="#" class="js-next" data-id="<%=@beer.id%>">Next Beer</button>
-<script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>
-$(function () {
-  $(".js-next").on("click", function(e) {
-    e.preventDefault()
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/beers/" + nextId + ".json", function(data) {
-      $("h3").text(data["name"]);
-      $("#brewery").text(data["brewery"]);
-      $("h5").text(data["style"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", data["id"]);
-      $(".js-prev").attr("data-id", data["id"]);
-    });
-  });
-});
-</script>
-<script>
-$(function () {
-  $(".js-prev").on("click", function(e) {
-    e.preventDefault()
-    var prevId = parseInt($(".js-prev").attr("data-id")) - 1;
-    $.get("/beers/" + prevId + ".json", function(data) {
-      $("h3").text(data["name"]);
-      $("#brewery").text(data["brewery"]);
-      $("h5").text(data["style"]);
-      // re-set the id to current on the link
-      $(".js-prev").attr("data-id", data["id"]);
-      $(".js-next").attr("data-id", data["id"]);
-    });
-  });
-});
-</script>
+<button href="#" class="js-prev" onClick="prevBeer()" data-id="<%=@beer.id%>">Previous Beer</button><button href="#" class="js-next" onClick="nextBeer()" data-id="<%=@beer.id%>">Next Beer</button>

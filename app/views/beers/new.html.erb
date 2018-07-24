@@ -13,7 +13,7 @@
 <h4>Don't See the beer you're Looking For?</h4>
 <h5>Add a New Beer to Our Comprehensive List</h5>
 
-<%= form_for(@beer) do |f| %>
+<%= form_for @beer do |f| %>
 <%= render partial: "beers/errors", locals: {object: @beer} %>
 <%= f.label :name%>
 <%= f.text_field :name%> <br>
@@ -21,24 +21,5 @@
 <%= f.text_field :brewery%> <br>
 <%= f.label :style%>
 <%= f.text_field :style%> <br>
-<%= f.submit "Add Beer!", data: { disable_with: false } %>
+<%= f.submit "Add Beer!" %>
 <% end %>
-
-<script type="text/javascript" charset="utf-8" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
-<script type="text/javascript" charset="utf-8">
-$(function () {
-  $("#new_beer").on("submit", function(e) {
-    e.preventDefault()
-    var values = $(this).serialize();
-    var form = this
-    var posting = $.post('/beers', values);
-
-    posting.done(function(data) {
-      var beer = new Beer(data.id, data.name, data.brewery, data.style);
-      $("#beers").append(beer.template());
-      form.reset()
-
-      });
-  })
-});
-</script>
