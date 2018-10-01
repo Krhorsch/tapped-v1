@@ -41,11 +41,14 @@ function newBeer(e) {
 
 function beerIndex(id) {
   $.get("/users/" + id + ".json", function(data) {
-    var organize = function() {
-      return data.beers.sort(function(a, b){return a.brewery > b.brewery});
-    }
+
+    data.beers.sort(function(a, b){return a.brewery > b.brewery})
+
     function beertable() {
-      return organize().map(beer => `<tr><td>${beer.name}</td><td>${beer.brewery}</td><td>${beer.style}</td></tr>`).join('')
+      return data.beers.map(beer =>{
+        var tablebeer = new Beer(beer.id, beer.name, beer.brewery, beer.style)
+        return tablebeer.tableTemplate()}
+      ).join('')
     }
 
     $(`#${id}add`).html(beertable());
